@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import questions from './data';
+import HomeScreen from './components/HomeScreen.js'
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: questions,
-      currentView: ''
+      currentView: '',
+      currentQuestions: []
     };
-    
+  }
+  changeView(view){
+
   }
   render() {
     return (
-      <div className="App">
-        <h1>Hello World</h1>
-      </div>
+      <HomeScreen />
     );
   }
 }
