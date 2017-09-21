@@ -16,7 +16,7 @@ class App extends Component {
   }
   render() {
     return (
-      <HomeScreen />
+      <HomeScreen numberOfQuestions={this.state.data.length}/>
     );
   }
 }
