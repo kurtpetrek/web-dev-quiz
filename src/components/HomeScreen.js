@@ -1,25 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import {styles} from '../constants.js';
 
 const Heading = styled.h1`
   text-align: center;
-  animation: heading-size 10s infinite alternate;
-
-  @media (max-width: 900px) {
-    & {
-      text-align: left;
-    }
-  }
+  font-family: ${styles.headerFontFamily};
+  font-size: 4rem;
 
   @media (max-width: 600px) {
     & {
-      text-align: right;
+      font-size: 3rem;
     }
-  }
-
-  @keyframes heading-size {
-    0% { transform: scale(1)}
-    100% { transform: scale(.5)}
   }
 `;
 
@@ -27,13 +18,7 @@ export default function HomeScreen(props) {
   return (
     <div>
       <Heading>
-        {'<HTML>'}
-        <br />
-        {'&'}
-        <br/>
-        {'{CSS}'}
-        <br/>
-        Quiz
+        &lt;HTML&gt; &amp; &#123;CSS&#125; Quiz
       </Heading>
     </div>
   )
