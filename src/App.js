@@ -7,17 +7,33 @@ class App extends Component {
     super(props);
     this.state = {
       data: questions,
-      currentView: '',
+      currentView: 'HomeScreen',
       currentQuestions: []
     };
   }
-  changeView(view){
 
+  onQuizStart = (numberOfQuestions) => {
+    console.log(numberOfQuestions);
+    this.setState((prevState) => {
+      prevState.currentView = 'Quiz';
+      return prevState;
+    });
   }
+
   render() {
-    return (
-      <HomeScreen numberOfQuestions={this.state.data.length}/>
-    );
+    if (this.state.currentView === 'HomeScreen') {
+      return (
+        <HomeScreen
+          totalNumberOfQuestions={this.state.data.length}
+          handleQuizStart={this.onQuizStart}
+        />
+      );
+    }
+    if (this.state.currentView === 'Quiz') {
+      return (
+        null
+      );
+    }
   }
 }
 

@@ -41,13 +41,7 @@ const QuestionSelectorContainer = styled.div`
 
   @media (max-width: 750px) {
     box-shadow: none;
-    border: none;
-    &::before {
-      display: none;
-    }
-    &::after {
-      display: none;
-    }
+    width: 98%;
   }
 
   &::before {
@@ -78,10 +72,11 @@ const QuestionSelectorContainer = styled.div`
 export default class HomeScreen extends React.Component {
   constructor(props){
     super(props);
+    this.handleQuizStart = props.handleQuizStart;
 
     this.state = {
-      maxQuestions: props.numberOfQuestions,
-      numberOfQuestions: props.numberOfQuestions
+      maxQuestions: props.totalNumberOfQuestions,
+      numberOfQuestions: props.totalNumberOfQuestions
     }
   }
 
@@ -94,7 +89,7 @@ export default class HomeScreen extends React.Component {
   }
 
   onButtonClick = (e) => {
-    console.log(this.state);
+    this.handleQuizStart(this.state.numberOfQuestions);
   }
 
   render() {
@@ -133,7 +128,9 @@ export default class HomeScreen extends React.Component {
             </RadioCheckBox>
           </form>
           <div style={{textAlign: 'right'}}>
-            <Button handleClick={this.onButtonClick}>Start Quiz</Button>
+            <Button
+              handleClick={this.onButtonClick}
+              >Start Quiz</Button>
           </div>
         </QuestionSelectorContainer>
       </div>
