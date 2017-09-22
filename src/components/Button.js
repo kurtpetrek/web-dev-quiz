@@ -7,11 +7,11 @@ const StyledButton = styled.button`
   background: ${props => props.background || 'transparent'};
   border-radius: 3px;
   display: inline-block;
-  border: 3px solid black;
+  border: 2px solid #444;
   cursor: pointer;
   transition: .25s;
   ${props => props.italic && 'font-style: italic;'}
-  
+
   &:hover {
     transform: scale(1.05);
   }

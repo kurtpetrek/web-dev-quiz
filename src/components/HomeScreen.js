@@ -131,9 +131,10 @@ export default class HomeScreen extends React.Component {
               >
               {this.state.maxQuestions}
             </RadioCheckBox>
-
           </form>
-          <Button handleClick={this.onButtonClick}>Start Quiz</Button>
+          <div style={{textAlign: 'right'}}>
+            <Button handleClick={this.onButtonClick}>Start Quiz</Button>
+          </div>
         </QuestionSelectorContainer>
       </div>
     )
