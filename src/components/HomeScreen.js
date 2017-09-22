@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from './Button';
 import { styles } from '../constants.js';
+
+import Button from './Button';
+import RadioCheckBox from './RadioCheckBox';
+
 
 const Heading = styled.h1`
   text-align: center;
@@ -103,35 +106,32 @@ export default class HomeScreen extends React.Component {
         </Heading>
 
         <QuestionSelectorContainer>
-          <p>Choose the number of questions: </p>
+          <p>Select number of questions: </p>
           <form>
-            <label>
-              <input
-                type="radio"
-                value="10"
-                checked={this.state.numberOfQuestions === 10}
-                onChange={this.collectInput}
-              />
+            <RadioCheckBox
+              value="10"
+              checked={this.state.numberOfQuestions === 10}
+              handleInput={this.collectInput}
+              >
               10
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="20"
-                checked={this.state.numberOfQuestions === 20}
-                onChange={this.collectInput}
-              />
+            </RadioCheckBox>
+
+            <RadioCheckBox
+              value="20"
+              checked={this.state.numberOfQuestions === 20}
+              handleInput={this.collectInput}
+              >
               20
-            </label>
-            <label>
-              <input
-                type="radio"
-                checked={this.state.numberOfQuestions === this.state.maxQuestions}
-                value={this.state.maxQuestions}
-                onChange={this.collectInput}
-                />
-                {this.state.maxQuestions}
-            </label>
+            </RadioCheckBox>
+
+            <RadioCheckBox
+              value={this.state.maxQuestions}
+              checked={this.state.numberOfQuestions === this.state.maxQuestions}
+              handleInput={this.collectInput}
+              >
+              {this.state.maxQuestions}
+            </RadioCheckBox>
+
           </form>
           <Button handleClick={this.onButtonClick}>Start Quiz</Button>
         </QuestionSelectorContainer>
