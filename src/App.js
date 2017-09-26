@@ -13,8 +13,14 @@ class App extends Component {
     };
   }
 
-  onQuizStart = (numberOfQuestions) => {
+  onNewQuiz = () => {
+    this.setState((prevState) => {
+      prevState.currentView = 'HomeScreen';
+      return prevState;
+    });
+  }
 
+  onQuizStart = (numberOfQuestions) => {
     let quizQuestions = this.state.data.slice();
     quizQuestions.sort(() => 0.5 - Math.random());
     quizQuestions = quizQuestions.slice(0, numberOfQuestions);
@@ -39,7 +45,10 @@ class App extends Component {
     }
     if (this.state.currentView === 'Quiz') {
       return (
-        <Quiz/>
+        <Quiz
+          questions={this.state.currentQuestions}
+          handleNewQuiz={this.onNewQuiz}
+        />
       );
     }
   }
