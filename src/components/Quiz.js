@@ -22,8 +22,9 @@ class Quiz extends Component {
       <div>
         <Heading/>
         <MainContainer>
-          <Button handleClick={this.handleNewQuiz}>New Quiz</Button>
+
         </MainContainer>
+        <Button handleClick={this.handleNewQuiz}>New Quiz</Button>
       </div>
     );
   }

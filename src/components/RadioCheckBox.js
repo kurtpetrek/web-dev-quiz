@@ -43,17 +43,23 @@ const BlockLabel = styled.label`
 `;
 
 export default function RadioCheckBox(props) {
-    return (
-      <BlockLabel>
-        <input
-          type="radio"
-          value={props.value}
-          checked={props.checked}
-          onChange={props.handleInput}
-        />
-        <span>
-          {props.children}
-        </span>
-      </BlockLabel>
-    )
+  let disabled = false;
+  if (props.disabled === true) {
+    disabled = true;
+  }
+  return (
+    <BlockLabel>
+      <input
+        type="radio"
+        disabled={disabled}
+        value={props.value}
+        checked={props.checked}
+        onChange={props.handleInput}
+
+      />
+      <span>
+        {props.children}
+      </span>
+    </BlockLabel>
+  )
 }
