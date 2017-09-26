@@ -2,9 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { styles } from '../constants.js';
 
-import RadioCheckBox from './RadioCheckBox';
-
-
 const StyledHeading = styled.h1`
   text-align: center;
   font-family: ${styles.headerFontFamily};

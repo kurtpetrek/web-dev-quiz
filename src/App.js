@@ -14,9 +14,16 @@ class App extends Component {
   }
 
   onQuizStart = (numberOfQuestions) => {
-    console.log(numberOfQuestions);
+
+    let quizQuestions = this.state.data.slice();
+    quizQuestions.sort(() => 0.5 - Math.random());
+    quizQuestions = quizQuestions.slice(0, numberOfQuestions);
     this.setState((prevState) => {
       prevState.currentView = 'Quiz';
+      prevState.currentQuestions = quizQuestions;
+
+      console.log(prevState.currentQuestions);
+      console.log(prevState.data);
       return prevState;
     });
   }
