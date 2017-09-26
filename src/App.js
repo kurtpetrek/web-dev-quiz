@@ -27,9 +27,6 @@ class App extends Component {
     this.setState((prevState) => {
       prevState.currentView = 'Quiz';
       prevState.currentQuestions = quizQuestions;
-
-      console.log(prevState.currentQuestions);
-      console.log(prevState.data);
       return prevState;
     });
   }
