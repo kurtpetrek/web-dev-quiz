@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import questions from './data';
 import HomeScreen from './components/HomeScreen.js'
+import Quiz from './components/Quiz.js'
 
 class App extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class App extends Component {
     }
     if (this.state.currentView === 'Quiz') {
       return (
-        null
+        <Quiz/>
       );
     }
   }

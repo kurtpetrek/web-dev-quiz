@@ -2,22 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { styles } from '../constants.js';
 
+import Heading from './Heading';
 import Button from './Button';
 import RadioCheckBox from './RadioCheckBox';
-
-
-const Heading = styled.h1`
-  text-align: center;
-  font-family: ${styles.headerFontFamily};
-  font-size: 4rem;
-  color: #444;
-
-  @media (max-width: 600px) {
-    & {
-      font-size: 3rem;
-    }
-  }
-`;
 
 const QuestionSelectorContainer = styled.div`
   max-width: 700px;
@@ -96,9 +83,7 @@ export default class HomeScreen extends React.Component {
 
     return (
       <div>
-        <Heading>
-          &lt;HTML&gt; &amp; &#123;CSS&#125; Quiz
-        </Heading>
+        <Heading/>
 
         <QuestionSelectorContainer>
           <p>Select number of questions: </p>
