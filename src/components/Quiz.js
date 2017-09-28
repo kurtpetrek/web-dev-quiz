@@ -50,6 +50,7 @@ class Quiz extends Component {
             value={choice}
             checked={choice === this.state.selectedAnswer}
             handleInput={this.collectAnswerInput}
+            disabled={this.state.questionAnswered}
             >
             {choice}
           </RadioCheckBox>

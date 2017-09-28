@@ -44,8 +44,12 @@ const BlockLabel = styled.label`
 
 export default function RadioCheckBox(props) {
   let disabled = false;
+  let spanStyles = {
+    opacity: 1
+  }
   if (props.disabled === true) {
     disabled = true;
+    spanStyles.opacity = .75;
   }
   return (
     <BlockLabel>
@@ -56,7 +60,7 @@ export default function RadioCheckBox(props) {
         checked={props.checked}
         onChange={props.handleInput}
       />
-      <span>
+      <span style={spanStyles}>
         {props.children}
       </span>
     </BlockLabel>
