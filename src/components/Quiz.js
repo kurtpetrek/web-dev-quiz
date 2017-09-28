@@ -31,14 +31,20 @@ class Quiz extends Component {
   }
 
   onAnswerSubmit = () => {
-    let answerCorrect = false;
-    if (this.state.selectedAnswer === this.state.questions[0].answer) {
-      answerCorrect = true;
+    if (this.state.selectedAnswer) {
+      let answerCorrect = false;
+      let scoreInc = 0;
+      if (this.state.selectedAnswer === this.state.questions[0].answer) {
+        answerCorrect = true;
+        scoreInc = 1;
+      }
+      this.setState((prevState) => {
+        prevState.answerCorrect = answerCorrect;
+        prevState.questionAnswered = true;
+        prevState.score += scoreInc;
+        return prevState;
+      });
     }
-    this.setState((prevState) => {
-      prevState.answerCorrect = answerCorrect;
-      prevState.questionAnswered = true;
-    });
   }
 
   render() {
@@ -92,6 +98,7 @@ class Quiz extends Component {
       <div>
         <Heading/>
         <MainContainer>
+          <h4>Score: {this.state.score}</h4>
           <p>{this.state.questions[0].question}</p>
           {feedback}
           <div style={{textAlign: 'center'}}>
