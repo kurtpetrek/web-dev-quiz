@@ -47,6 +47,16 @@ class Quiz extends Component {
     }
   }
 
+  onNextQuestion = () => {
+    this.setState((prevState) => {
+      prevState.questionAnswered = '';
+      prevState.selectedAnswer = '';
+      prevState.answerCorrect = false;
+      prevState.questions.shift();
+      return prevState;
+    });
+  }
+
   render() {
     const createChoice = (choice) => {
       if (choice) {
@@ -74,7 +84,7 @@ class Quiz extends Component {
     let nextButton = '';
     if (this.state.questionAnswered) {
       submitButton = '';
-      nextButton = <Button handleClick={this.handleNewQuiz}>Next Question</Button>;
+      nextButton = <Button handleClick={this.onNextQuestion}>Next Question</Button>;
     }
     let feedback = '';
     if (this.state.questionAnswered) {
