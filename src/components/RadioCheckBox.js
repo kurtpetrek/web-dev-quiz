@@ -55,7 +55,6 @@ export default function RadioCheckBox(props) {
         value={props.value}
         checked={props.checked}
         onChange={props.handleInput}
-
       />
       <span>
         {props.children}
