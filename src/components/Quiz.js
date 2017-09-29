@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import {styles} from './../constants';
+
 import Heading from './Heading';
 import MainContainer from './MainContainer';
 import Button from './Button';
@@ -90,13 +92,13 @@ class Quiz extends Component {
     if (this.state.questionAnswered) {
       let feedbackHeading = 'Incorrect...';
       let feedbackStyles = {
-        background: 'red',
+        background: styles.color5,
         marginBottom: '1rem',
         padding: '1rem'
       }
       if (this.state.answerCorrect) {
         feedbackHeading = 'Correct!';
-        feedbackStyles.background = 'lightblue';
+        feedbackStyles.background = styles.color3;
       }
       feedback = <div style={feedbackStyles}>
                   <h3>{feedbackHeading}</h3>
@@ -107,6 +109,9 @@ class Quiz extends Component {
     return (
       <div>
         <Heading/>
+        <div style={{padding: '0 1rem', maxWidth: '750px', margin: 'auto'}}>
+          <Button handleClick={this.handleNewQuiz}>New Quiz</Button>
+        </div>
         <MainContainer>
           <h4>Score: {this.state.score}</h4>
           <p>{this.state.questions[0].question}</p>
@@ -114,10 +119,13 @@ class Quiz extends Component {
           <div style={{textAlign: 'center'}}>
             {nextButton}
           </div>
-          {choices}
-          {submitButton}
+          <div style={{borderTop: '2px solid #333', margin: '1rem 0'}}>
+            {choices}
+          </div>
+          <div style={{textAlign: 'right'}}>
+            {submitButton}
+          </div>
         </MainContainer>
-        <Button handleClick={this.handleNewQuiz}>New Quiz</Button>
       </div>
     );
   }
