@@ -71,7 +71,11 @@ class Quiz extends Component {
   render() {
     if (this.state.quizFinished) {
       return (
-        <QuizFinishedScreen />
+        <QuizFinishedScreen
+          score={this.state.score}
+          maxScore={this.state.maxScore}
+          handleNewQuiz={this.handleNewQuiz}
+        />
       );
     }
     const createChoice = (choice) => {

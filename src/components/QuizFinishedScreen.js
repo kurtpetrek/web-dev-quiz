@@ -6,6 +6,14 @@ import Button from './Button';
 
 export default function QuizFinishedScreen(props) {
   return (
-    <h1>Finished!</h1>
+    <div style={{textAlign: 'center'}}>
+      <Heading />
+      <MainContainer>
+        <h1>Quiz Finished</h1>
+        <h2>You scored:</h2>
+        <h2>{props.score} out of {props.maxScore}</h2>
+        <Button handleClick={props.handleNewQuiz}>New Quiz</Button>
+      </MainContainer>
+    </div>
   )
 }
