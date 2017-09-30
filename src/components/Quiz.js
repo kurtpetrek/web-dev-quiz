@@ -7,6 +7,7 @@ import Heading from './Heading';
 import MainContainer from './MainContainer';
 import Button from './Button';
 import RadioCheckBox from './RadioCheckBox';
+import QuizFinishedScreen from './QuizFinishedScreen';
 
 class Quiz extends Component {
   constructor(props){
@@ -18,9 +19,9 @@ class Quiz extends Component {
         questionAnswered: false,
         selectedAnswer: '',
         answerCorrect: false,
-        maxScore: props.questions.length
+        maxScore: props.questions.length,
+        quizFinished: false
       }
-      console.log(this.state.questions);
   }
 
   collectAnswerInput = (e) => {
@@ -50,16 +51,29 @@ class Quiz extends Component {
   }
 
   onNextQuestion = () => {
-    this.setState((prevState) => {
-      prevState.questionAnswered = '';
-      prevState.selectedAnswer = '';
-      prevState.answerCorrect = false;
-      prevState.questions.shift();
-      return prevState;
-    });
+    if (this.state.questions.length > 1){
+      this.setState((prevState) => {
+        prevState.questionAnswered = '';
+        prevState.selectedAnswer = '';
+        prevState.answerCorrect = false;
+        prevState.questions.shift();
+        return prevState;
+      });
+    } else {
+      this.setState((prevState) => {
+        prevState.quizFinished = true;
+        console.log('done');
+        return prevState;
+      })
+    }
   }
 
   render() {
+    if (this.state.quizFinished) {
+      return (
+        <QuizFinishedScreen />
+      );
+    }
     const createChoice = (choice) => {
       if (choice) {
         return (
