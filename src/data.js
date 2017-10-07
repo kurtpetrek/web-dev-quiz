@@ -119,7 +119,7 @@ const questions = [{
     multipleAnswers: false,
     question: "Which is the proper pseudo class CSS syntax for a hover on an <a> tag?",
     choice1: 'a;hover {color: #7348FB;}',
-    choice2: '<a>:hover { color: #7348FB; }',
+    choice2: 'a :hover { color: #7348FB; }',
     choice3: 'a:hover-in { color: #7348FB; }',
     choice4: 'a:hover { color: #7348FB; }',
     answer: 'a:hover { color: #7348FB; }',
