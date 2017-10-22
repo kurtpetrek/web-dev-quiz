@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const BlockLabel = styled.label`
   display: block;
@@ -7,7 +7,7 @@ const BlockLabel = styled.label`
   position: relative;
   font-size: 1.3rem;
   cursor: pointer;
-  transition: .25s;
+  transition: 0.25s;
 
   input {
     display: none;
@@ -18,14 +18,14 @@ const BlockLabel = styled.label`
     padding-left: 50px;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       height: 10px;
       width: 10px;
       border: 2px solid black;
       left: 20px;
       top: 5px;
-      transition: .25s;
+      transition: 0.25s;
     }
   }
 
@@ -46,11 +46,15 @@ export default function RadioCheckBox(props) {
   let disabled = false;
   let spanStyles = {
     opacity: 1
-  }
+  };
+  const e = {};
+  e.target = {};
+  e.target.value = props.value;
   if (props.disabled === true) {
     disabled = true;
-    spanStyles.opacity = .75;
+    spanStyles.opacity = 0.75;
   }
+
   return (
     <BlockLabel>
       <input
@@ -60,9 +64,16 @@ export default function RadioCheckBox(props) {
         checked={props.checked}
         onChange={props.handleInput}
       />
-      <span style={spanStyles}>
+      <span
+        style={spanStyles}
+        role="button"
+        tabIndex="0"
+        onKeyPress={() => {
+          props.handleInput(e);
+        }}
+      >
         {props.children}
       </span>
     </BlockLabel>
-  )
+  );
 }
