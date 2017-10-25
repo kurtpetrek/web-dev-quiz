@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
-import { styles } from "./../constants";
+import { styles } from './../constants';
 
-import Heading from "./Heading";
-import MainContainer from "./MainContainer";
-import Button from "./Button";
-import RadioCheckBox from "./RadioCheckBox";
-import QuizFinishedScreen from "./QuizFinishedScreen";
+import Heading from './Heading';
+import MainContainer from './MainContainer';
+import Button from './Button';
+import RadioCheckBox from './RadioCheckBox';
+import QuizFinishedScreen from './QuizFinishedScreen';
 
 class Quiz extends Component {
   constructor(props) {
@@ -17,10 +17,10 @@ class Quiz extends Component {
       questions: props.questions,
       score: 0,
       questionAnswered: false,
-      selectedAnswer: "",
+      selectedAnswer: '',
       answerCorrect: false,
       maxScore: props.questions.length,
-      quizFinished: false
+      quizFinished: false,
     };
   }
 
@@ -53,8 +53,8 @@ class Quiz extends Component {
   onNextQuestion = () => {
     if (this.state.questions.length > 1) {
       this.setState(prevState => {
-        prevState.questionAnswered = "";
-        prevState.selectedAnswer = "";
+        prevState.questionAnswered = '';
+        prevState.selectedAnswer = '';
         prevState.answerCorrect = false;
         prevState.questions.shift();
         return prevState;
@@ -62,7 +62,7 @@ class Quiz extends Component {
     } else {
       this.setState(prevState => {
         prevState.quizFinished = true;
-        console.log("done");
+        console.log('done');
         return prevState;
       });
     }
@@ -106,27 +106,29 @@ class Quiz extends Component {
       submitButtonDisabled = false;
     }
     let submitButton = (
-      <Button handleClick={this.onAnswerSubmit} disabled={submitButtonDisabled}>Submit Answer</Button>
+      <Button handleClick={this.onAnswerSubmit} disabled={submitButtonDisabled}>
+        Submit Answer
+      </Button>
     );
 
-    let nextButton = "";
+    let nextButton = '';
     if (this.state.questionAnswered) {
-      submitButton = "";
+      submitButton = '';
       nextButton = (
         <Button handleClick={this.onNextQuestion}>Next Question</Button>
       );
     }
 
-    let feedback = "";
+    let feedback = '';
     if (this.state.questionAnswered) {
-      let feedbackHeading = "Incorrect...";
+      let feedbackHeading = 'Incorrect...';
       let feedbackStyles = {
         background: styles.color5,
-        marginBottom: "1rem",
-        padding: "1rem"
+        marginBottom: '1rem',
+        padding: '1rem',
       };
       if (this.state.answerCorrect) {
-        feedbackHeading = "Correct!";
+        feedbackHeading = 'Correct!';
         feedbackStyles.background = styles.color3;
       }
       feedback = (
@@ -144,11 +146,11 @@ class Quiz extends Component {
           <h4>Score: {this.state.score}</h4>
           <p>{this.state.questions[0].question}</p>
           {feedback}
-          <div style={{ textAlign: "center" }}>{nextButton}</div>
-          <div style={{ borderTop: "2px solid #333", margin: "1rem 0" }}>
+          <div style={{ textAlign: 'center' }}>{nextButton}</div>
+          <div style={{ borderTop: '2px solid #333', margin: '1rem 0' }}>
             {choices}
           </div>
-          <div style={{ textAlign: "right" }}>{submitButton}</div>
+          <div style={{ textAlign: 'right' }}>{submitButton}</div>
         </MainContainer>
       </div>
     );
