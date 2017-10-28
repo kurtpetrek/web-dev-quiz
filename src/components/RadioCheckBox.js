@@ -16,6 +16,12 @@ const BlockLabel = styled.label`
   span {
     display: block;
     padding-left: 50px;
+    transition: 0.25s;
+
+    &:focus {
+      outline: none;
+      padding-left: 60px;
+    }
 
     &::before {
       content: "";
