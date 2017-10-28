@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { styles } from '../constants.js';
 
 const StyledHeading = styled.h1`
   text-align: center;
-  font-family: ${styles.headerFontFamily};
+  font-family: ${props => props.theme.headerFontFamily};
   font-size: 4rem;
-  color: #444;
+  color: ${props => props.theme.colorGrey};
 
   @media (max-width: 600px) {
     & {
@@ -15,12 +14,8 @@ const StyledHeading = styled.h1`
   }
 `;
 
-const Heading = (props) => {
-    return (
-      <StyledHeading>
-        &lt;HTML&gt; &amp; &#123;CSS&#125; Quiz
-      </StyledHeading>
-    );
-}
+const Heading = props => {
+  return <StyledHeading>&lt;HTML&gt; &amp; &#123;CSS&#125; Quiz</StyledHeading>;
+};
 
 export default Heading;
