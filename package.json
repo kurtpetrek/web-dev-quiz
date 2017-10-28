@@ -10,9 +10,7 @@
     "styled-components": "^2.1.2"
   },
   "devDependencies": {
-    "react-scripts": "1.0.13",
-    "typescript": "^2.5.3",
-    "typescript-styled-plugin": "^0.1.2"
+    "react-scripts": "1.0.13"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -21,15 +19,5 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
-  },
-  "prettier": {
-    "printWidth": 80,
-    "singleQuote": true,
-    "trailingComma": "all",
-    "bracketSpacing": true,
-    "jsxBracketSameLine": false,
-    "parser": "babylon",
-    "semi": true,
-    "tabWidth": 2
   }
 }

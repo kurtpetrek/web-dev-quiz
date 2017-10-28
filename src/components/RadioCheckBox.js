@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const BlockLabel = styled.label`
   display: block;
@@ -18,14 +18,14 @@ const BlockLabel = styled.label`
     padding-left: 50px;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       height: 10px;
       width: 10px;
       border: 2px solid black;
       left: 20px;
       top: 5px;
-      transition: ${props => props.theme.transitionTime};
+      transition: 0.25s;
     }
   }
 
@@ -45,7 +45,7 @@ const BlockLabel = styled.label`
 export default function RadioCheckBox(props) {
   let disabled = false;
   let spanStyles = {
-    opacity: 1,
+    opacity: 1
   };
   const e = {};
   e.target = {};

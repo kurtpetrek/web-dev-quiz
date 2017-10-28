@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import questions from './data';
-import HomeScreen from './components/HomeScreen.js';
-import Quiz from './components/Quiz.js';
+import HomeScreen from './components/HomeScreen.js'
+import Quiz from './components/Quiz.js'
 
 class App extends Component {
   constructor(props) {
@@ -9,27 +9,27 @@ class App extends Component {
     this.state = {
       data: questions,
       currentView: 'HomeScreen',
-      currentQuestions: [],
+      currentQuestions: []
     };
   }
 
   onNewQuiz = () => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       prevState.currentView = 'HomeScreen';
       return prevState;
     });
-  };
+  }
 
-  onQuizStart = numberOfQuestions => {
+  onQuizStart = (numberOfQuestions) => {
     let quizQuestions = this.state.data.slice();
     quizQuestions.sort(() => 0.5 - Math.random());
     quizQuestions = quizQuestions.slice(0, numberOfQuestions);
-    this.setState(prevState => {
+    this.setState((prevState) => {
       prevState.currentView = 'Quiz';
       prevState.currentQuestions = quizQuestions;
       return prevState;
     });
-  };
+  }
 
   render() {
     if (this.state.currentView === 'HomeScreen') {
